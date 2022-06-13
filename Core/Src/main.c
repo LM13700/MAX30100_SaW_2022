@@ -131,6 +131,17 @@ int main(void)
             {
                 HAL_UART_Transmit(&huart2, (uint8_t*)string, stringLen, HAL_MAX_DELAY);
             }
+
+            if (irSample >= MAX30100_LIGHT_THRESHOLD)
+            {
+                HAL_GPIO_WritePin(LED_READY_GPIO_Port, LED_READY_Pin, GPIO_PIN_RESET);
+                HAL_GPIO_WritePin(LED_IN_PROG_GPIO_Port, LED_IN_PROG_Pin, GPIO_PIN_SET);
+            }
+            else
+            {
+                HAL_GPIO_WritePin(LED_READY_GPIO_Port, LED_READY_Pin, GPIO_PIN_SET);
+                HAL_GPIO_WritePin(LED_IN_PROG_GPIO_Port, LED_IN_PROG_Pin, GPIO_PIN_RESET);
+            }
         }
         are_samples_ready = false;
     }
