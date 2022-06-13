@@ -51,6 +51,8 @@
 #define MAX30100_MODE_HR                (0x02)
 #define MAX30100_MODE_SPO2              (0x03)
 
+#define MAX30100_LIGHT_THRESHOLD        (25000u)
+
 /*===========================================================================*
  *
  * EXPORTED TYPES AND ENUMERATION SECTION
